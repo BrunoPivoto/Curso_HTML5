@@ -11,6 +11,11 @@
     function mudaFoto ( foto ) {
         document.getElementById( "icone" ).src = foto
     }
+    function calcTotal(){
+        var qnt = parseInt(document.getElementById('cQnt').value);
+        total = qnt*1500;
+        document.getElementById('cPreco').value = total;
+    }
 </script>
 
 <body>
@@ -51,7 +56,7 @@
                     </hgroup>
                 </header>
 
-                <form method="post" id="fContato" action="mailto::brunohpsr@gmail.com">
+                <form method="post" id="fContato" action="mailto::brunohpsr@gmail.com" oninput="calcTotal();">
                     <fieldset id="usuario">
                         <legend>Identificação do Usuário</legend>
                         <p><label for="cNome">Nome: </label><input type="text" name="tNome" id="cNome" size="20"
@@ -98,20 +103,19 @@
 
                     <fieldset id="msg">
                         <legend>Mensagem do Usuário</legend>
-                        <p><label for="cGrau">Grau de Urgência:</label> Nem tanto<input type="range" name="tGrau" id="cGrau" min="0" max="10" step="2">Demais</p>
-                        <p><label for="cMsg">Mensagem:</label><textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="Deixe sua mensagem aqui"></textarea></p>
+                        <p><label for="cGrau">Grau de Urgência:</label> Nem tanto<input type="range" name="tGrau" id="cGrau" min="0" max="10" step="2">Muito</p>
+                        <p><label for="cMsg" >Mensagem: <br></label><textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="Deixe sua mensagem aqui" style="margin-left: 50px;"></textarea></p>
                     </fieldset>
 
                     <fieldset id="pedido">
                         <legend>Quero um Google Glass</legend>
-                        <p><label for="cPedido">Gostaria de adquirir um Google Glass quando disponível</label></p>
-                        <p><label for="cCor">Cor:</label></p>
-                        <p><label for="cQnt">Quantidade:</label></p>
-                        <p><label for="cPreco">Preço Total: R$</label></p>
+                        <p> <input type="checkbox" name="tPedido" id="cPedido"> <label for="cPedido">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                        <p><label for="cCor">Cor:</label> <input type="color" name="tCor" id="cCor"> </p>
+                        <p><label for="cQnt">Quantidade:</label> <input type="number" name="tQnt" id="cQnt" min="0" max="5" value="0"> </p>
+                        <p><label for="cPreco">Preço Total: R$</label> <input type="text" name="tPreco" id="cPreco" placeholder="Total a pagar" readonly size="8"></p>
                     </fieldset>
 
-
-                    <input type="button" value="Enviar">
+                    <input type="image" src="_imagens/botao-enviar.png" alt="botaEnvio">
                 </form>
             </article>
         </section>
